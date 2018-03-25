@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to Scooter simulator
+  div#map&attributes({float: left})
+  div#controls&attributes({float:right})
+    a(id=generate class='button')
+              br
+    a(id=exterminate class='button')
+              br
+  script(type='text/javascript').
+        var map;
+        function initMap() {
+          map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 52.545920, lng: 13.349132},
+            zoom: 12
+          });
+          console.log("map created");
+        }
+  script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyB20Tu66EcSVp2nTd5ZUE5jHaSgENMpxTE&callback=initMap')
+  
