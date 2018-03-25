@@ -3,12 +3,12 @@ extends layout
 block content
   h1= title
   p Welcome to Scooter simulator
-  div#map&attributes({float: left})
-  div#controls&attributes({float:right})
-    a(id=generate class='button')
-              br
-    a(id=exterminate class='button')
-              br
+      div#map
+      div#controls
+          input#generate(type="button", value="Generate")
+          br
+          br
+          input#exterminate(type="button", value="Exterminate")
   script(type='text/javascript').
         var map;
         function initMap() {

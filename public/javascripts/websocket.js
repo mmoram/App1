@@ -5,12 +5,21 @@ $(function() {
 	var websocket;
 
     $("#generate").click(function() {
-        //generate 10 random person on map displayed area
-        //generate 20 random scooter position on map area
+       //map boundaries
+       var map = document.getElementById("map");
+       var bounds = map.getBounds();
+       var minlat = bounds.getSouthWest().lat();
+       var maxlat = bounds.getNortEast().lat();
+       var minlng = bounds.getSouthWest().lng();
+       var maxlng = bounds.getNortEast().lng();
         //send data to server        
         var json_msg = {
             "type" : "command",
-            "data" : "start"
+            "data" : "start",
+            "min_lat" : minlat,
+            "max_lat" : maxlat,
+            "min_lng" : minlng,
+            "max_lng" : maxlng
         };
 
         websocket.send(JSON.stringify(json_msg));
